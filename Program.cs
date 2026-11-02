@@ -74,29 +74,89 @@
 // }
 // System.Console.WriteLine($"количество чётных чисел: {chet}");
 //zadanie 6
-using System.Xml;
-
-string[] names = { "Анна", "Игорь", "Мария", "Олег", "Ольга" };
-int index = -1;
-Console.Write("введите имя: ");
-string name = Console.ReadLine();
-for (int i = 0; i < names.Length; i++)
-{
-    if (names[i] == name)
-    {
-        index = i;
-        break;
-    }
-    else
-    {
+// string[] names = { "Анна", "Игорь", "Мария", "Олег", "Ольга" };
+// int index = -1;
+// Console.Write("введите имя: ");
+// string name = Console.ReadLine();
+// for (int i = 0; i < names.Length; i++)
+// {
+//     if (names[i] == name)
+//     {
+//         index = i;
+//         break;
+//     }
+//     else
+//     {
         
+//     }
+// }
+// if (index != -1)
+// {
+//     System.Console.WriteLine($"{name} na pozicii {index}");
+// }
+// else
+// {
+//     System.Console.WriteLine("не найдено");
+// }
+// last zadacha
+int[] grades = new int[8];
+for (int i = 0; i < grades.Length; i++)
+{
+    Console.Write($"Оценка {i + 1}: ");
+    grades[i] = Convert.ToInt32(Console.ReadLine());
+}
+Console.Write("Оценки: ");
+for (int i = 0; i < grades.Length; i++)
+{
+    Console.Write($"{grades[i]} ");
+}
+Console.WriteLine();
+int sum = 0;
+for (int i = 0; i < grades.Length; i++)
+{
+    sum += grades[i];
+}
+double average = (double)sum / grades.Length;
+Console.WriteLine($"Средняя: {average:F2}");
+int max = grades[0];
+int min = grades[0];
+for (int i = 1; i < grades.Length; i++)
+{
+    if (grades[i] > max)
+    {
+        max = grades[i];
+    }
+    if (grades[i] < min)
+    {
+        min = grades[i];
     }
 }
-if (index != -1)
+Console.WriteLine($"Макс: {max}");
+Console.WriteLine($"Мин: {min}");
+int twos = 0;
+int fives = 0;
+for (int i = 0; i < grades.Length; i++)
 {
-    System.Console.WriteLine($"{name} na pozicii {index}");
+    if (grades[i] == 2)
+    {
+        twos++;
+    }
+    if (grades[i] == 5)
+    {
+        fives++;
+    }
+}
+Console.WriteLine($"Двоек: {twos}");
+Console.WriteLine($"Пятёрок: {fives}");
+if (average >= 4.5)
+{
+    Console.WriteLine("Отличник");
+}
+else if (average >= 3.5)
+{
+    Console.WriteLine("Хорошист");
 }
 else
 {
-    System.Console.WriteLine("не найдено");
+    Console.WriteLine("Есть над чем поработать");
 }
